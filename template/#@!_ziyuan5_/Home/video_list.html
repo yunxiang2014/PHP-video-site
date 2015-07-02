@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>最新{$cname}在线观看-百度影音高清-{$webname}</title>
+<meta name="keywords" content="最新{$cname},<if condition='$pid eq 1'><gxcms name='video' cid='1' limit='10' order='dayhits desc'>《{$video.title}》,</gxcms></if><if condition='$pid eq 2'><gxcms name='video' cid='2' limit='10' order='dayhits desc'>《{$video.title}》,</gxcms></if><if condition='$pid eq 3'><gxcms name='video' cid='3' limit='10' order='dayhits desc'>《{$video.title}》,</gxcms></if><if condition='$pid eq 4'><gxcms name='video' cid='4' limit='10' order='dayhits desc'>《{$video.title}》,</gxcms></if>最新{$cid|get_pid|get_channel_name},{$cname}在线观看,{$webname}">
+<meta name="description" content="最新{$cname},<if condition='$pid eq 1'><gxcms name='video' cid='1' limit='10' order='dayhits desc'>《{$video.title}》,</gxcms></if><if condition='$pid eq 2'><gxcms name='video' cid='2' limit='10' order='dayhits desc'>《{$video.title}》,</gxcms></if><if condition='$pid eq 3'><gxcms name='video' cid='3' limit='10' order='dayhits desc'>《{$video.title}》,</gxcms></if><if condition='$pid eq 4'><gxcms name='video' cid='4' limit='10' order='dayhits desc'>《{$video.title}》,</gxcms></if>最新{$cid|get_pid|get_channel_name},{$cname}在线观看,{$webname}">
+<link rel='stylesheet' type='text/css' href='{$webpath}css/header.css'>
+<link rel='stylesheet' type='text/css' href='{$webpath}css/list.css'>
+<script type="text/javascript" src="{$webpath}js/common.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<include file="header_detail" />
+<div id="movie_info" style="display:none"></div>
+<div class="wrapper R710L250">
+<div class="navigation">
+  <span>您现在所在的位置：</span>{$navtitle}
+</div>
+<div class="main">
+		<div class="box box_tag">
+			<div class="box_tt"><h2>{$cid|get_pid|get_channel_name}索引</h2>
+				<a id="a_reset_critirea" href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid|get_pid}.html" title="" class="act">重置筛选</a>
+			</div>
+			<div class="box_con">				
+				<dl class="searchtag">
+					<dt>检索条件:</dt><dd class="searchtag_tips">共有<span>{$count}</span>个符合条件的视频</dd>
+				</dl>
+				<div id="all_critirea_issue">
+                
+				<dl class="taglist"><dt>按类型</dt>
+					<dd id="div_genre"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid|get_pid}" <if condition="$cid eq get_pid($cid)">class="on"</if>>全部</a><gt name="pid" value="0"><gxcms name="menu" ids="'.$pid.'"><gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}" <eq name="cid" value="$menuson.id">class="on"</eq>>{$menuson.cname}</a></gxfor></gxcms><else /><gxcms name="menu" ids="'.$cid.'"><gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}" <eq name="cid" value="$menuson.id">class="on"</eq>>{$menuson.cname}</a></gxfor></gxcms></gt></dd>
+				</dl>
+                
+				<dl class="taglist"><dt>按地区</dt>
+					<dd id="div_area"><a href="{$webpath}index.php?s=video/lists/reset/1/area/{$area}" id="areaall">全部</a><span id="areahtml">{$area}</span></dd>
+				</dl>
+				<dl class="taglist"><dt>按年份</dt>
+					<dd id="div_year"><a href="{$webpath}index.php?s=video/lists/reset/1/year/{$year}" id="yearall">全部</a><span id="yearhtml">{$year}</span></dd>
+				</dl>
+				<dl class="taglist"><dt>按拼音</dt>
+					<dd id="div_fordown"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}" <if condition="$letter eq null">class="on"</if>>全部</a> {:get_letter_url($cid,$letter,'video','','')}</dd>
+				</dl>
+								</div>
+				<div class="tagtigger">
+					<span id="btn_critea_area" onclick="show_critea_area();">收起全部</span>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="box_tt box_tt_tab">
+				<strong>排序方式</strong><h3 <if condition="$order eq 'weekhits'">class="on"</if>><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/order/weekhits">热门</a></h3><h3 <if condition="($order eq 'addtime') or ($order eq null)">class="on"</if>><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/order/addtime">更新</a></h3><h3 <if condition="$order eq 'score'">class="on"</if>><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/order/score">评分</a></h3>
+			</div>
+	<div class="box_con">
+		<ul class="movielist">
+            <gxlist name="video" cid="'.$cid.'" limit="20" order="'.$order.'">
+            <li><a href="{$video.readurl}" title="{$video.title}" target="_blank" class="pic"><img id="img_{$video.id}" onclick="set_view_record('id={$video.id}|{$video.title}|{$video.readurl}|{$video.picurl-s}|{$video.year}|{$video.score}|{$video.showname}|{$video.playerurl}');" onmouseover="show_movie_info('img_{$video.id}','teleplay','{$video.title}','{$video.score}','{$video.scoreer}','{$video.area}&nbsp;','{$video.showname}','{$video.actor|get_replace_html=0,12}','{$video.$director|default=未知}','{$video.year}','{$video.hits}','');" onmouseout="hide_movie_info();" _src="{$video.picurl-s}" src="{$webpath}images/img_default.gif" alt="{$video.title}" title="{$video.title}" />{$video.title}<if condition="($video.intro eq 'DVD+BD') or ($video.intro eq 'BD')"><span class="movnum movnum_1080"></span></if><if condition="($video.intro eq 'HD')"><span class="movnum movnum_720"></span></if><if condition="($video.intro eq 'dvd')"><span class="movnum movnum_480"></span></if><span class="movbg"></span><span class="movtxt"><if condition="$video.serial gt 0">更新至{$video.serial}集<else /></if><if condition="$video.serial eq 0">{$video.intro|default=完结}<else /></if></span></a><p class="title"><a title="{$video.title}" onclick="set_view_record('id={$video.id}|{$video.title}|{$video.readurl}|{$video.picurl}|{$video.year}|{$video.score}|{$video.showname}|{$video.playerurl}');" target="_blank" href="{$video.readurl}">{$video.title|get_replace_html=0,12}</a><a class="info" target="_blank" title="查看详情" onclick="set_view_record('id={$video.id}|{$video.title}|{$video.readurl}|{$video.picurl}|{$video.year}|{$video.score}|{$video.showname}|{$video.playerurl}');" href="{$video.readurl}">查看详情</a></p><p>{$video.actor|get_replace_html=0,10}</p><p>评价:<strong>{$video.score}</strong><em>({$video.scoreer}评)</em></p>
+						<div class="operbox"><a class="on" href="{$video.playerurl}" onclick="set_view_record('id={$video.id}|{$video.title}|{$video.readurl}|{$video.picurl}|{$video.year}|{$video.score}|{$video.showname}|{$video.playerurl}');" title="{$video.title}" target="_blank">播放</a>
+						<a id="cl_mid_{$video.id}" title="收藏" href="javascript:void(0);" >收藏</a>
+						</div>
+			</li>
+            </gxlist>
+		</ul>
+				<gt name="count" value="20"><p class="list-pager">{$pages}</p></gt>
+	</div>
+		</div><!--box  END-->
+	</div><!--main  END-->
+	<div id="all_channel_page_side" class="side">
+				<div class="box box_submenu">
+			<div class="box_tt"><h2>分类索引</h2></div>
+			<div class="box_con">
+				<ul class="submenu"><gxcms name="menu"><eq name="menu.mid" value="1">
+                    <li><a href="{$menu.showurl}" title="{$menu.cname}" <if condition="($menu['id'] eq $cid) or ($menu['id'] eq $pid)">class="on"</if>>{$menu.cname}</a></li></eq></gxcms>
+                </ul>
+			</div>
+		</div>
+				<div class="box">
+			<div class="box_tt"><h2>最新热播榜</h2></div>
+			<div class="box_con">
+				<div class="tabbox">
+						<a id="Tab_rebo_0" <if condition="($pid eq 1) or ($cid eq 1)">class="on"</if> onmouseover="switchTab('rebo',0,4,'on','');">电影</a>
+						<a id="Tab_rebo_1" <if condition="($pid eq 2) or ($cid eq 2)">class="on"</if>onmouseover="switchTab('rebo',1,4,'on','');">电视剧</a>
+						<a id="Tab_rebo_2" <if condition="$cid eq 3">class="on"</if> onmouseover="switchTab('rebo',2,4,'on','');">动漫</a>
+						<a id="Tab_rebo_3" <if condition="$cid eq 4">class="on"</if> onmouseover="switchTab('rebo',3,4,'on','');">综艺</a>
+				</div>				
+				<div id="List_rebo_0" <if condition="($pid neq 1) and ($cid neq 1)">style="display:none;"</if>>				
+					<ol class="ranklist ranklist_dsj">
+                    	<gxcms name="video" cid="1" limit="10" order="dayhits desc">
+						<lt name="i" value="4"><li class="top"><else /><li></lt><em><eq name="i" value="10">{$i}<else/>0{$i}</eq></em><p><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title}</a><strong class="type"><if condition="$video.serial gt 0">更新至{$video.serial}集<else/><notempty name='video.intro'>{$video.intro|get_replace_html=0,8}<else />高清</notempty></if></strong></p><span class="score">{$video.score}</span><a href="{$video.readurl}" title="点击查看影片信息" class="info" target="_blank">影片信息</a></li>
+                        </gxcms>
+					</ol>
+				</div>
+				<div id="List_rebo_1" <if condition="($pid neq 2) and ($cid neq 2)">style="display:none;"</if>>
+					<ol class="ranklist ranklist_dsj">
+						<gxcms name="video" cid="2" limit="10" order="dayhits desc">
+						<lt name="i" value="4"><li class="top"><else /><li></lt><em><eq name="i" value="10">{$i}<else/>0{$i}</eq></em><p><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title}</a><strong class="type"><if condition="$video.serial gt 0">更新至{$video.serial}集<else/><notempty name='video.intro'>{$video.intro|get_replace_html=0,8}<else />完结</notempty></if></strong></p><span class="score">{$video.score}</span><a href="{$video.readurl}" title="点击查看影片信息" class="info" target="_blank">影片信息</a></li>
+                        </gxcms>
+					</ol>
+				</div>
+				<div id="List_rebo_2" <if condition="$cid neq 3">style="display:none;"</if>>
+					<ol class="ranklist ranklist_dsj">
+						<gxcms name="video" cid="3" limit="10" order="dayhits desc">
+						<lt name="i" value="4"><li class="top"><else /><li></lt><em><eq name="i" value="10">{$i}<else/>0{$i}</eq></em><p><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title}</a><strong class="type"><if condition="$video.serial gt 0">更新至{$video.serial}集<else/><notempty name='video.intro'>{$video.intro|get_replace_html=0,8}<else />完结</notempty></if></strong></p><span class="score">{$video.score}</span><a href="{$video.readurl}" title="点击查看影片信息" class="info" target="_blank">影片信息</a></li>
+                        </gxcms>
+					</ol>
+				</div>
+				<div id="List_rebo_3" <if condition="$cid neq 4">style="display:none;"</if>>
+					<ol class="ranklist ranklist_dsj">
+						<gxcms name="video" cid="4" limit="10" order="dayhits desc">
+						<lt name="i" value="4"><li class="top"><else /><li></lt><em><eq name="i" value="10">{$i}<else/>0{$i}</eq></em><p><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title}</a><strong class="type"><if condition="$video.serial gt 0">{$video.serial}期<else/><notempty name='video.intro'>{$video.intro|get_replace_html=0,8}<else />完结</notempty></if></strong></p><span class="score">{$video.score}</span><a href="{$video.readurl}" title="点击查看影片信息" class="info" target="_blank">影片信息</a></li>
+                        </gxcms>
+					</ol>
+				</div>
+			</div>			
+		</div>
+		<div class="box box_history">
+	<div class="box_tt"><h2>您的浏览记录</h2><a class="act" onclick="clear_movies_viewed();this.blur();"title="清空" href="javascript:void(0);">清空</a></div>
+	<div class="box_con">
+		<ul class="historylist" id="channel_historylist"><p style="text-align:center;">暂无浏览记录！</p></ul>
+	</div>
+	<script>__init_view_record();</script>
+</div>
+</div>
+</div>
+<include file="footer" />
+</body>
+</html>
+<include file="system" />
+<script src="{$webpath}js/lazy.js" charset="utf-8" ></script>
+<script type="text/javascript">LAZY.init();LAZY.run();</script>
+<script type="text/javascript" src="{$webpath}js/videolist.js"></script>
+<script src="{$webpath}js/tips_history_lazy.min.js" charset="utf-8" ></script>

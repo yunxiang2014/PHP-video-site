@@ -1,0 +1,16 @@
+<notempty name="list_comment">
+    <ul class="commentdetail commentdetail_short" id="commentStextBox_update"><gxfor name="list_comment" id="comment" order="up desc">
+    <li><div class="commentdetail_div">
+        <p class="commentdetail_txt"><span>{$comment.floor}Th</span> {$comment.content|htmlspecialchars|remove_xss}</p>
+        <div class="commentdetail_bar">
+        <p>{$comment.addtime|date='Y-m-d H:i:s',###} From:{$comment.ip|GetIpAddress}</p>
+        <div class="c_more">
+			<a class="cup" onclick="cup({$comment.id})" id="cup{$comment.id}">Good[{$comment.up}]</a> <a class="cdown" onclick="cdown({$comment.id})"  id="cdown{$comment.id}">Bad[{$comment.down}]</a>
+		</div>
+        </div>
+    </div></li>
+    </gxfor>
+    </ul>
+    <if condition="$count gt C('user_page_cm')"><div class="pages">{$pages}</div></if>
+</notempty>
+<!--发表评论表单 -->

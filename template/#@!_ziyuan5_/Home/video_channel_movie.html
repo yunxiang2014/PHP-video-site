@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>{$cname}频道-最新、最全、最好看、最经典、最高清的免费在线{$cname}-{$webname}</title>
+<meta name="keywords" content="最新{$cname}，免费{$cname}<gxcms name="menu" ids="'.$cid.'"><gxfor name="menu.son" id="menuson">，{$menuson.cname}</gxfor></gxcms>">
+<meta name="description" content="{$webname}{$cname}频道频道，为您提供免费720P、1080P高品质高清影视内容在线观看">
+<link rel='stylesheet' type='text/css' href='{$webpath}css/header.css'>
+<link rel='stylesheet' type='text/css' href='{$webpath}css/index_movie.css'>
+</head>
+<body>
+<div id="wrapper">
+<include file="header_detail" />
+<div class="mainnav_site_box">
+<div class="mainnav_site">
+	<div class="mainnav_site_con">
+		<p><a href="{:get_channel_name(1,'showurl')}" target="_self" class="on">电影首页</a><gxcms name="menu" ids="'.$cid.'"><gxfor name="menu.son" id="menuson">|<a href="{$menuson.showurl}">{$menuson.cname}</a></gxfor></gxcms></p>
+	</div>
+</div><!--nav_channel 副导航  END-->
+<div class="tagbox">
+	<h2>电影索引</h2>
+	<ul class="taglink">
+		<li><a  href="{$webpath}index.php?s=video/lists/reset/1/id/1.html">最近更新</a></li>
+		<li><a  href="{$webpath}index.php?s=video/lists/reset/1/id/1/order/weekhits">热门排行</a></li>
+		<li><a  href="{$webpath}index.php?s=video/lists/reset/1/id/1/area/%E6%AC%A7%E7%BE%8E">欧美大片</a></li>
+	</ul>
+	<dl class="tagbox_dl tagbox_dl_1">
+		<dt>类型</dt>
+		<gxcms name="menu" ids="'.$cid.'"><gxfor name="menu.son" id="menuson"><dd><a href="{$menuson.showurl}">{$menuson.cname}</a></dd></gxfor></gxcms>
+	</dl>
+	<dl class="tagbox_dl tagbox_dl_2">
+		<dt>年代</dt>
+		<dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/year/2012" title="2012">2012</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/year/2011" title="2011">2011</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/year/2010" title="2010">2010</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/year/2009" title="2009">2009</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/year/2008" title="2008">2008</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/year/2007" title="2007">2007</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/year/2006" title="2006">2006</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/year/2005" title="2005">2005</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/year/2004" title="2004">2004</a></dd>
+	</dl>
+	<dl class="tagbox_dl tagbox_dl_3">
+		<dt>地区</dt>
+		<dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/内地" title="内地">内地</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/香港" title="香港">香港</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/" title="台湾">台湾</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/韩国" title="韩国">韩国</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/日本" title="日本">日本</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/欧美" title="欧美">欧美</a></dd><dd><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/其它" title="其它">其它</a></dd>
+
+	</dl>
+	<dl class="tagbox_dl tagbox_dl_4">
+		<dt>明星</dt>
+<dd><a href="{$webpath}index.php?s=video/search/wd/甄子丹" target="_blank">甄子丹</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/杨紫琼" target="_blank">杨紫琼</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/梅艳芳" target="_blank">梅艳芳</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/张国荣" target="_blank">张国荣</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/刘德华" target="_blank">刘德华</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/周星驰" target="_blank">周星驰</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/李连杰" target="_blank">李连杰</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/梁朝伟" target="_blank">梁朝伟</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/范冰冰" target="_blank">范冰冰</a></dd>
+
+	</dl>
+	<dl class="tagbox_dl tagbox_dl_5">
+		<dt>热门组合</dt>
+<dd><a href="{$webpath}index.php?s=video/search/wd/徐克" target="_blank">徐克武侠电影</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/张艺谋" target="_blank">张艺谋史诗大片</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/杜琪峰" target="_blank">杜琪峰经典枪战</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/洪金宝" target="_blank">洪金宝动作片</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/成龙" target="_blank">成龙玩命特技</a></dd>
+<dd><a href="{$webpath}index.php?s=video/search/wd/梁朝伟" target="_blank">2011好莱坞大片</a></dd>
+
+	</dl>
+</div><!--toptag  END-->
+
+<div class="wrapper">
+
+		<div class="box height_1">
+			<div class="box_tt">
+				<h2 class="h2_1">最新大片</h2>
+			</div>
+			<ul class="movielist"><gxcms name="video" cid="1" limit="7" order="addtime desc">
+				<li>
+					<a class="pic" title="{$video.title}" href="{$video.readurl}"><img title="{$video.title}" alt="{$video.title}" src="{$video.picurl}"></a>
+					<div class="title"><h3><a title="{$video.title}" href="{$video.readurl}">{$video.title}</a></h3><span class="score">{$video.score}</span><a class="info" title="{$video.title}详情" href="{$video.readurl}">{$video.title}详情</a></div>
+					<p class="p1">标签:<a href="{$video.showurl}" title="{$video.showname}">{$video.showname}</a><notempty name="video.area"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/{$video.area|default='未知'}">{$video.area}</a><else /></notempty></p>
+					<p>{$video.actor}</p>
+				</li></gxcms>
+			</ul>
+		</div><!--box 最新大片 END-->
+
+</div><!--wrapper  END-->
+
+<div class="wrapper">
+	<div class="main">
+		<div class="box height_4">
+			<div class="box_tt">
+				<h2 class="h2_4">推荐大片</h2>
+				<ul class="tabbox">
+					<li id="Tab_jingdian_0" class="on" onmouseover="switchTab('jingdian',0,5,'on','')">欧美大片</li>
+<li id="Tab_jingdian_1"  onmouseover="switchTab('jingdian',1,5,'on','')">午夜影院</li>
+<li id="Tab_jingdian_2"  onmouseover="switchTab('jingdian',2,5,'on','')">香港制造</li>
+<li id="Tab_jingdian_3"  onmouseover="switchTab('jingdian',3,5,'on','')">动作猛片</li>
+<li id="Tab_jingdian_4"  onmouseover="switchTab('jingdian',4,5,'on','')">日韩专区</li>
+				</ul>
+				<div class="ttbanner" id="cm1109" style="display:none"></div>
+			</div>
+			<div id="List_jingdian_0">
+				<ul class="movielist movielist_modB movielist_modB_2"><gxcms name="video" cid="1" area="欧美" limit="6" order="stars desc">
+					<li>
+	<a href="{$video.readurl}" title="{$video.title}" class="pic"><img src="{$video.picurlsmall}" alt="{$video.title}" title="{$video.title}" /><span class="ico720">720P</span></a>
+	<p class="desc">{$video.content|get_replace_html=0,16}</p>
+	<div class="title"><h3><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a></h3><span class="score">{$video.score}</span></div>
+	<p>主演:{$video.actor|get_actor_url}</p>
+	<p>标签:<a href="{$video.showurl}" title="{$video.showname}">{$video.showname}</a><notempty name="video.area"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/{$video.area}">{$video.area}</a><else /></notempty></p>
+</li></gxcms>
+				</ul>
+			</div>
+			<div id="List_jingdian_1" style="display:none">
+				<ul class="movielist movielist_modB movielist_modB_2"><gxcms name="video" cid="13" limit="6" order="stars desc">
+					<li>
+	<a href="{$video.readurl}" title="{$video.title}" class="pic"><img src="{$video.picurlsmall}" alt="{$video.title}" title="{$video.title}" /><span class="ico720">720P</span></a>
+	<p class="desc">{$video.content|get_replace_html=0,16}</p>
+	<div class="title"><h3><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a></h3><span class="score">{$video.score}</span></div>
+	<p>主演:{$video.actor|get_actor_url}</p>
+	<p>标签:<a href="{$video.showurl}" title="{$video.showname}">{$video.showname}</a><notempty name="video.area"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/{$video.area}">{$video.area}</a><else /></notempty></p>
+</li></gxcms>
+				</ul>	
+			</div>
+			<div id="List_jingdian_2" style="display:none">
+				<ul class="movielist movielist_modB movielist_modB_2"><gxcms name="video" cid="1" area="香港" limit="6" order="stars desc">
+					<li>
+	<a href="{$video.readurl}" title="{$video.title}" class="pic"><img src="{$video.picurlsmall}" alt="{$video.title}" title="{$video.title}" /><span class="ico720">720P</span></a>
+	<p class="desc">{$video.content|get_replace_html=0,16}</p>
+	<div class="title"><h3><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a></h3><span class="score">{$video.score}</span></div>
+	<p>主演:{$video.actor|get_actor_url}</p>
+	<p>标签:<a href="{$video.showurl}" title="{$video.showname}">{$video.showname}</a><notempty name="video.area"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/{$video.area}">{$video.area}</a><else /></notempty></p>
+</li></gxcms>
+				</ul>
+			</div>
+			<div id="List_jingdian_3" style="display:none">
+				<ul class="movielist movielist_modB movielist_modB_2"><gxcms name="video" cid="8" limit="6" order="stars desc">
+					<li>
+	<a href="{$video.readurl}" title="{$video.title}" class="pic"><img src="{$video.picurlsmall}" alt="{$video.title}" title="{$video.title}" /><span class="ico720">720P</span></a>
+	<p class="desc">{$video.content|get_replace_html=0,16}</p>
+	<div class="title"><h3><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a></h3><span class="score">{$video.score}</span></div>
+	<p>主演:{$video.actor|get_actor_url}</p>
+	<p>标签:<a href="{$video.showurl}" title="{$video.showname}">{$video.showname}</a><notempty name="video.area"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/{$video.area}">{$video.area}</a><else /></notempty></p>
+</li></gxcms>
+				</ul>
+			</div>
+			<div id="List_jingdian_4" style="display:none">
+				<ul class="movielist movielist_modB movielist_modB_2"><gxcms name="video" cid="1" area="日本,韩国" limit="6" order="stars desc">
+					<li>
+	<a href="{$video.readurl}" title="{$video.title}" class="pic"><img src="{$video.picurlsmall}" alt="{$video.title}" title="{$video.title}" /><span class="ico720">720P</span></a>
+	<p class="desc">{$video.content|get_replace_html=0,16}</p>
+	<div class="title"><h3><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a></h3><span class="score">{$video.score}</span></div>
+	<p>主演:{$video.actor|get_actor_url}</p>
+	<p>标签:<a href="{$video.showurl}" title="{$video.showname}">{$video.showname}</a><notempty name="video.area"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/{$video.area}">{$video.area}</a><else /></notempty></p>
+</li></gxcms>
+				</ul>
+			</div>
+		</div><!--box 经典大片 END-->
+
+		<div class="box height_4">
+			<div class="box_tt">
+				<h2 class="h2_3">热播影片</h2>
+				<ul class="tabbox">
+					<li id="Tab_rebo_0" class="on" onmouseover="switchTab('rebo',0,2,'on','')">本周热播</li>
+<li id="Tab_rebo_1"  onmouseover="switchTab('rebo',1,2,'on','')">近期热播</li>
+				</ul>
+			</div>
+			<div id="List_rebo_0">
+				<ul class="movielist movielist_modB movielist_modB_2"><gxcms name="video" cid="1" limit="6" order="weekhits desc">
+					<li>
+	<a href="{$video.readurl}" title="{$video.title}" class="pic"><img src="{$video.picurlsmall}" alt="{$video.title}" title="{$video.title}" /><span class="ico720">720P</span></a>
+	<p class="desc">{$video.content|get_replace_html=0,16}</p>
+	<div class="title"><h3><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a></h3><span class="score">{$video.score}</span></div>
+	<p>主演:{$video.actor|get_actor_url}</p>
+	<p>标签:<a href="{$video.showurl}" title="{$video.showname}">{$video.showname}</a><notempty name="video.area"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/{$video.area}">{$video.area}</a><else /></notempty></p>
+</li></gxcms>
+				</ul>
+			</div>
+			<div id="List_rebo_1" style="display:none">
+				<ul class="movielist movielist_modB movielist_modB_2"><gxcms name="video" cid="1" limit="6" order="monthhits desc">
+					<li>
+	<a href="{$video.readurl}" title="{$video.title}" class="pic"><img src="{$video.picurlsmall}" alt="{$video.title}" title="{$video.title}" /><span class="ico720">720P</span></a>
+	<p class="desc">{$video.content|get_replace_html=0,16}</p>
+	<div class="title"><h3><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a></h3><span class="score">{$video.score}</span></div>
+	<p>主演:{$video.actor|get_actor_url}</p>
+	<p>标签:<a href="{$video.showurl}" title="{$video.showname}">{$video.showname}</a><notempty name="video.area"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$cid}/area/{$video.area}">{$video.area}</a><else /></notempty></p>
+</li></gxcms>
+				</ul>	
+			</div>
+		</div><!--box 经典大片 END-->
+	</div><!--main end-->
+	<div class="side">
+		<div class="box height_11">
+			<div class="box_tt box_tt_tab">
+				<ul class="tabbox">
+					<li id="Tab_recombang_0" onmouseover="switchTab('recombang',0,2,'on','')" class="on">热门影片榜</li>
+					<li id="Tab_recombang_1" onmouseover="switchTab('recombang',1,2,'on','')">热评影片榜</li>
+				</ul>
+			</div>
+			<ol id="List_recombang_0" class="ranklist ranklist_modC"><gxcms name="video" cid="1" limit="15" order="hits desc">
+			<eq name="i" value="1"><li class="show top">
+		<a href="{$video.readurl}" title="{$video.title}" class="pic"><img src="{$video.picurlsmall}" alt="{$video.title}" title="{$video.title}" /></a>
+		<span class="score">{$video.score}</span>
+		<p class="title"><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a></p>
+		<em>01</em>
+		<p>主演:{$video.actor|get_actor_url}</p>
+		<p>类别:<a href="{$video.showurl}" title="{$video.showname}">{$video.showname}</a></p>
+		<p>影评:{$video.scoreer}篇</p>
+		<span>简介:{$video.content|get_replace_html=0,34}...</span>
+			</li><else/>
+			<lt name="i" value="4"><li class="top"><else/><li></lt><lt name="i" value="10"><em>0{$i}</em><else/><em>{$i}</em></lt><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a><span class="score">{$video.score}</span></li></eq></gxcms>
+			</ol>
+			<ol id="List_recombang_1" class="ranklist ranklist_modC" style="display:none"><gxcms name="video" cid="1" limit="15" order="score desc">
+			<eq name="i" value="1"><li class="show top">
+		<a href="{$video.readurl}" title="{$video.title}" class="pic"><img src="{$video.picurlsmall}" alt="{$video.title}" title="{$video.title}" /></a>
+		<span class="score">{$video.score}</span>
+		<p class="title"><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a></p>
+		<em>01</em>
+		<p>主演:{$video.actor|get_actor_url}</p>
+		<p>类别:<a href="{$video.showurl}" title="{$video.showname}">{$video.showname}</a></p>
+		<p>影评:{$video.scoreer}篇</p>
+		<span>简介:{$video.content|get_replace_html=0,34}...</span>
+			</li><else/>
+			<lt name="i" value="4"><li class="top"><else/><li></lt><lt name="i" value="10"><em>0{$i}</em><else/><em>{$i}</em></lt><a href="{$video.readurl}" title="{$video.title}">{$video.title}</a><span class="score">{$video.score}</span></li></eq></gxcms>
+			</ol>
+		</div>
+	</div>
+</div><!---->
+<include file="footer" />
+</body>
+</html>
+<script type="text/javascript" src="{$webpath}js/common.min.js"></script>
+<script src="{$webpath}js/tips_history_lazy.min.js" charset="utf-8" ></script>
+<script type="text/javascript">LAZY.init();LAZY.run();</script>
+<script language="JavaScript" type="text/javascript" src="{$webpath}views/js/history.js"></script>

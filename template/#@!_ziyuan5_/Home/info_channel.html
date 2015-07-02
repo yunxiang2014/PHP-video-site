@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<link href="/css/header.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/info_list.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<!--头部 开始-->
+<include file="header_detail" />
+<div class="wrapper">	
+	<div class="navigation">
+		当前位置: {$navtitle} &gt; <span>分类列表</span>
+	</div><!--navigation  END-->	
+	<div class="main">
+		<div class="box boxlist page_videolist">
+			<div class="boxtt">
+
+				<dl class="act_tab">
+					<dt>排列方式:</dt>
+					<dd><a href="#" title="" class="on">最新</a></dd>
+					<dd><a href="#" title="">最热</a></dd>
+				</dl>
+
+			</div>
+			<div class="boxcon">
+				<ol class="txtlist txtlist_list"><gxlist name="info" limit="20" order="'.$order.'" >
+                	<li><em class="yl_ico"></em><a href="{$info.readurl}" title="{$info.title}" target="_blank">{$info.title}</a>
+					<span class="time_th">发布时间:{$info.addtime|get_color_date='m-d',###}</span>
+					</li></gxlist>
+                </ol>
+				<if condition="$count gt 10"><p class="list-pager">{$pages}</p></if>
+			</div>
+		</div><!--box  END-->
+	</div><!--main  END-->
+	
+	<div class="submenu">
+		<h2>娱乐频道</h2>
+		<ul>
+		<gxcms name="menu" ids="'.$cid.'"><gxfor name="menu.son" id="menuson"><li <if condition="$cid eq $menuson.id">class="on"</if>><a href="{$menuson.showurl}">{$menuson.cname}</a></li></gxfor></gxcms>
+		</ul>
+	</div><!--submenu  END-->
+	
+</div><!--wrapper END-->
+<include file="footer" />
+</div>
+</body>
+</html>
+<include file="system" />
+<script type="text/javascript" src="{$webpath}js/common.min.js"></script>
+<script src="{$webpath}js/tips_history_lazy.min.js" charset="utf-8" ></script>
+<script type="text/javascript">LAZY.init();LAZY.run();</script>

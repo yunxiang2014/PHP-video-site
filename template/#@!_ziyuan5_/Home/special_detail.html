@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<link rel='stylesheet' type='text/css' href='{$webpath}css/topic.css'>
+<link rel='stylesheet' type='text/css' href='{$webpath}css/header.css'>
+</head>
+<body>
+<div class="top_con">
+<include file="header_detail" />
+</div>
+<div class="wrap">
+<if condition="$banner neq null"><div class="focus" style="height:auto;"><img src="{$banner}" title="{$title}" width=730 border="0"/></div><else/></if>
+	<div class="areabox topTab side">
+		<div class="area_head"><h2>热门专题排行</h2></div>
+		<div class="area_cont">
+			<ol><gxcms name="special" limit="10" order="hits desc">
+				<li><a href="{$special.readurl}">{$special.title|get_replace_html=0,12}</a></li></gxcms>
+			</ol>
+		</div> <!--人气榜 -->
+	</div>
+	<div class="primary">
+		<div class="areabox">
+			<div class="area_cont" id="List_rank_0">
+<div id="page_0_0">
+<div class="item_previ" style="padding-top:10px;margin-top:0px;text-align:center;">
+					<h3 style="padding:0;margin:0;">{$title}</h3>
+					<p style="padding:5px;margin:0;border-bottom:1px dashed #DDDDDD;"><span>{$addtime|date='Y-m-d',###}</span> | <span>相关视频 {$mids|explode=',',###|count} 部</span></p>
+					<div class="previ_intro" style="padding:10px;margin:0;text-align:left;text-indent:2em;">{$content}</div>
+</div>
+<div class="item_previ"><h3 style="padding:0;margin:0;">相关视频列表</h3>
+<ul class="mov_pic_list" style="float:left;text-align:center;">
+        <gxcms name="video" ids="'.$mids.'" limit="100"><li>
+          <div class="pic"><a href="{$video.readurl}" target="_blank"><img src="{$video.picurl}" title="{$video.title}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="98" height="140" border="0"/></a></div>
+          <div class="mid_title"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,7}</a></div>
+        </li></gxcms>
+      </ul>
+</div>
+</div>
+			</div>
+</div>
+<if condition="C('user_comment') eq 1">
+<div style="margin-top:10px;">
+	<div class="box_comment box_comment_input" id="inputCbox">
+    <div class="box_comment_tt">
+    <h3>{$title} 专题评论</h3>
+    <div class="box_comment_more" id="sendCm_more">(共{$id|get_comment_count}条评论)</div>
+	</div>
+    <div class="commenttip" id="successBox" style="display:none"></div><!--commenttip  END-->
+    <div class="box_con" id="List_sendCm_0">
+        <div class="inputcontain">
+        <textarea name="content" id="comment_content" rows="5" onfocus="ss=setInterval(sp,200)" onblur="clearInterval(ss)" maxlength="200" class="textarea"></textarea>
+		<div class="textarea_bar">
+        <span class="textarea_bar_error" id="errorS"></span><span class="textarea_bar_tip" id="tipS"></span>
+        <input id="comment_button" onclick="CommentPost();" class="textarea_bar_btn" type="button" value="发表评论" onmouseover="this.className='textarea_bar_btn textarea_bar_btn_hover'" onmouseout="this.className='textarea_bar_btn'" style="border:none;"/>
+        <p>还可以输入<span id="span">200</span>个字</p>
+        </div>
+        </div><!--inputcontain 输入 END-->
+    </div>
+<!--box  END-->
+    </div>
+</div>
+</if>
+</div>
+	<div class="side">
+		<div class="areabox">
+			<div class="area_head"><h2>专题评论区</h2></div>
+			<div class="area_cont discuss_con">
+				<ul class="discuss_list">
+					<li>您最喜欢看哪一类专题？</li>
+				</ul>				
+				<div class="discuss_previ" id="scroll_comment">					
+					<ul><gxcms name="comment" mid="3" limit="10">
+					<li>{$comment.ip|GetIpAddress='shi'}网友:{$comment.content|get_replace_html=0,50}</li>
+					</gxcms>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{$inserthits}
+<include file="footer" />
+</div>
+</body>
+</html>
+<include file="system" />
+<script language="javascript">var SiteMid='3';</script>
+<script type="text/javascript" src="{$webpath}js/common.min.js"></script>
+<script src="{$webpath}js/tips_history_lazy.min.js" charset="utf-8" ></script>
+<script language="JavaScript" type="text/javascript" src="{$webpath}views/js/history.js"></script>

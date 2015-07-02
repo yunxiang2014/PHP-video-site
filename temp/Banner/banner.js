@@ -1,0 +1,1 @@
+document.write("<a href=\"http://www.okcu.edu\">\n  <img src=\"http://www.okcu.edu/images/homeslides/top25.jpg\" alt=\"HTML tutorial\" border=0>\n</a>");

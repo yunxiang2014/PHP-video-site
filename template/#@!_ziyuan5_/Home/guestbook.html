@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<include file="system" />
+<link rel='stylesheet' type='text/css' href='{$webpath}css/header.css'>
+<link rel='stylesheet' type='text/css' href='{$webpath}css/top10.css'>
+<script language="javascript">
+$(document).ready(function(){
+	$('#content').focus(function(){
+		if($('#content').val()=='分享您的看法吧，最多200个字。'){
+			$('#content').val('');
+		}
+	});
+	$('#content').blur(function(){
+		if($('#content').val()==''){
+			$('#content').val('分享您的看法吧，最多200个字。');
+		}
+	});	
+	$("#guestbook").submit( function () {
+		if($('#content').val().length>200){
+			alert('您输入的留言信息过长，请删减一些！');
+  			return false;
+		}
+		if($('#content').val()=='分享您的看法吧，最多200个字。'){
+			alert('请输入留言信息！');
+  			return false;
+		}		
+	}); 
+});
+</script>
+</head>
+<body>
+<div id="wrapper">
+<include file="header" />
+<div class="wrapper R710L250">
+<div class="navigation">
+<!--
+  <span>Current Location：</span>{$navtitle}
+END-->
+</div>
+<div class="box">
+<div class="box_tt"><h2>I would like to say：</h2></div>
+    <div style="padding:10px;">
+    <form action="{$webpath}index.php?s=Guestbook/Insert" method="post" name="guestbook" id="guestbook">
+    <input name="errid" type="hidden" value="{$id}" />  
+  <if condition="(C('user_post') eq 1) and ($userid eq 0)">
+    <div class="guestbook_login">发表留言，请登录：<a href="{$webpath}index.php?s=user/login">登录</a>&nbsp;|&nbsp;<a href="index.php?s=user/reg">注册</a></div>
+    <textarea id="guestbookInput" name="content" rows="5" onFocus="if(this.value=='分享您的看法吧，最多200个字。'){this.value='';};this.select();" onblur="if(this.value==''){this.value='分享您的看法吧，最多200个字。';};" class="txt_in" maxlength="200" disabled="disabled"></textarea>
+    <p class="under_row"><button type="submit" class="sub_btn" name="submit" id="submitCommBtn" disabled><span>发表留言</span></button></p>
+  <else />
+    <div style="margin:0 auto;width:600px"><textarea name="content"  id="content" rows="5" class="txt_in" maxlength="200" style="width:100%;">{$content|default='Share your opion, at most 200 words'}</textarea></div>
+    <p style="margin:10px auto;width:600px;text-align:right;"><button type="submit" class="textarea_bar_btn" id="submit" onmouseover="this.className='textarea_bar_btn textarea_bar_btn_hover'" onmouseout="this.className='textarea_bar_btn'" style="border:none;"/><span>Submit</span></button></p>
+  </if>
+    </form>
+    </div>
+</div>
+<div class="box">
+<div class="box_tt"><h2>Review：</h2></div>
+    <!--留言列表-->
+    <ul class="board_ul">
+	<!--
+	{$guestbook.username|htmlspecialchars|remove_xss}({$guestbook.ip|GetIpAddress})
+	END-->
+        <gxfor name="list_guestbook" id="guestbook"><li>
+        <div class="guestbook_cont">
+        <p><span class="time">{$guestbook.addtime|date='Y-m-d H:i',###}</span>{$guestbook.floor}Th：<strong>Guest</strong><br>{$guestbook.content|htmlspecialchars|remove_xss}</p></div>
+        <notempty name="guestbook.recontent">
+        <div class="re_cont"><p class="re_title">站长回复：</p><p>{$guestbook.recontent}</p></div>
+        </notempty>
+        </li></gxfor>
+    </ul>
+    <gt name="count" value="10"><div class="pages">{$pages}</div></gt>
+</div>
+<include file="footer" />
+</div>
+</body>
+</html>

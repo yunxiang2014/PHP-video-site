@@ -1,0 +1,7 @@
+<gxcms name="video" limit="'.$_GET['limit'].'" order="dayhits desc"> 
+<li>
+	<a href="{$video.readurl}" title="{$video.title}" class="playpic" target="_blank"><img src="{$video.picurl}" alt="{$video.title}" title="{$video.title}" /></a>
+	<p class="title"><a title="{$video.title}" href="{$video.readurl}" target="_blank">{$video.title|get_replace_html=0,8}</a></p>
+	<p>{$video.actor}</p>
+</li>
+</gxcms>

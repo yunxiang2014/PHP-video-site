@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<link href="/css/header.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/info_base.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<!--头部 开始-->
+<include file="header_detail" />
+<div class="wrapper txtwrapper">
+	<div class="navigation">
+		当前位置: {$navtitle}
+	</div><!--navigation  END-->
+	
+	<div class="main">		
+		<div class="maincontain">
+			<a name="#content"></a>
+			<h3 class="newstitle">{$title}</h3>
+			<div class="newsinfo">
+				<span>{$addtime|date='Y-m-d',###}</span><if condition="$cid eq 23">
+				<span>来源:{$reurl|default='原创'}</span></if>
+			</div>
+			<div class="contain">
+				{$content}
+			</div><!--contain  END-->
+		</div><!--maincontain END-->	
+	</div><!--main  END-->
+	
+	<div class="side">
+		<div class="box">
+			<div class="boxtt"><h2>热门{$cname}排行</h2></div>
+			<div class="boxcon">
+				<ol class="txtlist txtlist_num">
+					<span id="hot_info" href="{$webpath}index.php?s=my/show/id/hot_info/cid/{$cid}/limit/15">Loading...</span>
+				</ol>
+			</div>
+		</div><!--box  END-->
+</div>
+	</div><!--side END-->
+	
+</div><!--wrapper END-->
+<include file="footer" />
+{$inserthits}
+</body>
+</html>
+<include file="system" />
+<script type="text/javascript" src="{$webpath}js/common.min.js"></script>
+<script src="{$webpath}js/tips_history_lazy.min.js" charset="utf-8" ></script>
+<script language="JavaScript" type="text/javascript" src="/js/template.js"></script>
+<script type="text/javascript">LAZY.init();LAZY.run();</script>

@@ -1,0 +1,21 @@
+<div class="topchannel">
+	<div class="topchannel_con">
+		<a href="{$webpath}" title="{$webname}" class="logo" target="_blank" blockid="2601"><img src="{$webpath}images/logo.png" alt="{$webname}" title="{$webname}" /></a>
+		<ul>
+			<li class="nobg"><a href="{$webpath}" <if condition="$model eq 'index'">class="on"</if>>Home</a></li>
+    		<gxcms name="menu">
+    		<li><a href="{$menu.showurl}" <if condition="($menu['id'] eq $cid) or ($menu['id'] eq $pid)">class="on"</if>>{$menu.cname}</a></li></gxcms>
+    		<li><a href="{$topurl}" <if condition="check_model('top10') eq 1">class="on"</if>>Range</a></li>
+    		<li><a href="{$specialurl}" <if condition="check_model('special') eq 1">class="on"</if>>Special</a></li>
+		</ul>
+		<div class="topsearch">
+			<form action="{$webpath}index.php?s=video/search" method="post" name="search" id="search" >
+				<input type="text" value="" id="wd" name="wd" autocomplete="off" maxlength="35">
+				<button type="submit" class="search_bt"><span>Search</span></button>
+			</form>
+		<script type="text/javascript" src="{$webpath}js/search_content_utf8.js" charset="utf-8"></script>
+		<script>setSearchInputContent(document.getElementById("wd"))</script>
+		</div>
+		<div class="toplogon" id="topdy" style="display: none;"></div>
+	</div>
+</div><!--topchannel 头部 END-->

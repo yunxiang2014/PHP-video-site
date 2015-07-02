@@ -1,0 +1,87 @@
+<div class="header">
+	<h1 class="header_logo"><a href="{$webpath}" title="{$webname}" target="_self">{$webname}</a></h1>
+	<script type="text/javascript" src="{$webpath}js/search_content_utf8.js"></script>
+	<div class="searchbox">
+	<form method="post" action="{$webpath}index.php?s=video/search" onsubmit="return check();" style="z-index: -1;" name="search" id="search" target="_blank">
+		<fieldset class="searchbox_search">
+			<input id="wd" name="wd" onfocus="serchClick('wd')" autocomplete="off" value="{$keyword|default='请输入视频名、主演或导演'}" maxlength="26" type="text" class="input"/>
+			<button type="submit" id="btnSearch" onclick="stopSearchTextTimer();">Search</button>
+		</fieldset>
+	</form>
+	<script>
+	function serchClick(name)
+	{
+		var box=document.getElementById(name);
+		if(searchTextTimer!=null||box.value=='请输入视频名、主演或导演')
+		{box.value=''};
+		stopSearchTextTimer();
+		box.style.color='#000';
+	}
+	setSearchInputContent(document.getElementById("wd"));
+	</script>
+		<div class="searchbox_hottag">
+			<a href="{$webpath}index.php">Hot play</a>{$hotkey}
+		</div>
+	</div><!--searchbox  END-->
+	<div class="userpanel_box">
+		<div class="dy_top_box">{:get_cms_ads('detail_txt')}</div>
+		<div class="userpanel"><!--header shoucang <a href="javascript:void(0)" id="fav">收藏本站</a>|END--><a href="{$guestbookurl}" target="_blank">Advice</a></div>
+	</div>
+	<div class="quickpanel" id="quickpanel"></div>
+</div><!--header 头部结束 END-->
+<div class="mainnav">
+	<div class="mainnav_list">
+    <a href="{$webpath}" <if condition="$model eq 'index'">class="on"</if>>Home</a>
+	<!--
+    <gxcms name="menu">
+	
+    <a onfocus="this.blur();" href="{$menu.showurl}" <if condition="($menu['id'] eq $cid) or ($menu['id'] eq $pid)">class="on"</if>>{$menu.cname}</a> </gxcms>
+	END-->
+	<!--header 头部结束
+    <a href="{$topurl}" <if condition="$model eq 'top10'">class="on"</if>>Rank</a>
+    <a href="{$specialurl}" <if condition="$model eq 'special'">class="on"</if>>Special</a>
+	 END-->
+	</div>
+	<div class="dropbox dropbox_1">
+	<script>
+	var topShow=false;
+	function showTop(n){
+		if(topShow==true){
+			switchTab('top',n,2,"dropbox_tigger dropbox_tigger_on","dropbox_tigger");
+		}else{
+			document.getElementById("Tab_top_"+n).className="dropbox_tigger dropbox_tigger_on";
+			document.getElementById("List_top_"+n).style.display="";
+			topShow=true;
+		}
+	}
+	function hideTop(){
+		for(i=0;i<2;i++) {
+			var CurTabObj = document.getElementById("Tab_top_"+i) ;
+			var CurListObj = document.getElementById("List_top_"+i) ;
+			CurTabObj.className="dropbox_tigger" ;
+			CurListObj.style.display="none";
+		}
+	}
+	</script>
+	<!--histroydrop  
+		<a href="javascript://" title="" class="dropbox_tigger" id="Tab_top_0" onmouseover="showTop(0);" onmouseout="hideTop();" target="_self" >百度影音<b></b></a>
+		<div class="histroydrop" style="display:none;" id="List_top_0" onmouseover="showTop(0);" onmouseout="hideTop();">
+		<div class="histroydrop_tt"><a href="javascript://" title="关闭" class="red" onclick="hideTop();" target="_self">关闭</a></div>
+		<div class="softbox"><dl class="softbox_dl">
+		<dt>百度影音播放器</dt>
+		<dd id="baidu_download_url3"><a href="/player_down.php">本地下载</a></dd>
+		<dd class="cutline">|</dd><dd id="baidu_download_url"><a href="http://www.skycn.com/soft/65257.html">天空下载</a></dd>
+		<dd class="cutline">|</dd><dd id="baidu_download_url2"><a href="http://dl.pconline.com.cn/download/65022.html#ad=6575">PConline</a></dd>
+		</dl></div>
+		</div>
+	</div>END-->
+
+	<div class="dropbox dropbox_2">
+	<!--histroydrop  
+		<a href="javascript://" title="" class="dropbox_tigger" id="Tab_top_1" onmouseover="showTop(1);" onmouseout="hideTop();" target="_self">我看过的<b></b></a>
+		<div class="histroydrop" style="display:none;" id="List_top_1" onmouseover="showTop(1);" onmouseout="hideTop();">
+		<div class="histroydrop_tt"><a href="javascript://" onclick="delCookie('gxhis');" target="_self" title="清空观看记录">清空观看记录</a>|<a href="javascript://" title="关闭" class="red" onclick="hideTop();" target="_self">关闭</a></div>
+		<div class="histroydrop_con"><div id="view_history" class="view_history" style="display:;" target="_self"><center>您的观看历史为空。</center></div></div>
+		</div><!--histroydrop  END-->
+	</div>
+</div><!--mainnav 导航结束 END-->

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<link rel='stylesheet' type='text/css' href='{$webpath}css/top10.css'>
+<link rel='stylesheet' type='text/css' href='{$webpath}css/header.css'>
+<include file="system" />
+<script language="javascript">
+$(document).ready(function(){
+	$('.submenu>li:last').addClass('nobrd');
+	$('.submenu>li>a').click(function(){
+		id = $(this).attr('id');
+		$('.submenu>li>a').removeClass('on');
+		$('#menu'+id+'>a').addClass('on');
+		$('.hot').hide();
+		$('#hot'+id).show();
+	});
+});
+</script>
+</head>
+<body>
+<div id="wrapper">
+<include file="header_detail" />
+<div class="wrapper R710L250">
+<div class="navigation">
+  <span>您现在所在的位置：</span>{$navtitle}
+</div>
+<div class="main"><gxcms name="menu"><eq name="menu.mid" value="1">
+		<div class="box box_tag hot" id="hot{$menu.id}" <neq name="i" value="1">style="display:none"</neq>>   
+			<div class="box_tt">
+				<h2>{:get_channel_name($menu['id'])}总人气排行榜</h2>
+			</div>
+			<div class="box_con">
+<table class="list_top">
+<col width="40" />
+<col width="180" />
+<col width="45" />
+<col width="100" />
+<col width="280" />
+<col width="70"/>
+<tr height=30>
+<th>排序</th><th>片名</th><th>类型</th><th>年代 | 地区</th><th>
+主演</th><th><span>播放次数</span></th>
+</tr><gxcms name="video" cid="'.$menu['id'].'" limit="20" order="hits desc">
+<tr>
+<td <lt name="i" value="4">class="top"<else /></lt>><em><lt name="i" value="10">0{$i}<else/>{$i}</lt></em></td><td class="tit"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,9}</a><td><a href="{$video.showurl}">{$video.showname}</a></td><td><notempty name="video.year"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$menu.id}/year/{$video.year}">{$video.year}</a><else />未知</notempty> | <notempty name="video.area"><a href="{$webpath}index.php?s=video/lists/reset/1/id/{$menu.id}/area/{$video.area}">{$video.area}</a><else />未知</notempty></td><td class="actor">{$video.actor|get_replace_html=0,21|get_actor_url}</td><td><span>{$video.hits}</span></td>
+</tr></gxcms>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+			</div> 
+ 		</div></eq></gxcms><!--box  END-->
+</div><!--main  END-->
+	<div id="all_channel_page_side" class="side">
+		<div class="box box_submenu">
+			<div class="box_tt"><h2>排行索引</h2></div>
+			<div class="box_con">
+				<ul class="submenu"><gxcms name="menu"><eq name="menu.mid" value="1">
+                    <li id="menu{$menu.id}"><a onfocus="this.blur();" href="javascript:void(0)" id="{$menu.id}" title="{$menu.cname}" <if condition="$menu['id'] eq 1">class="on"</if>>{$menu.cname}</a></li></eq></gxcms>
+                </ul>
+			</div>
+		</div>
+	</div>
+<include file="footer" />
+</div>
+</body>
+</html>
+<script type="text/javascript" src="{$webpath}js/common.min.js"></script>
+<script src="{$webpath}js/tips_history_lazy.min.js" charset="utf-8" ></script>
+<script language="JavaScript" type="text/javascript" src="{$webpath}views/js/history.js"></script>

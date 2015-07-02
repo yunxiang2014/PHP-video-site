@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<link rel='stylesheet' type='text/css' href='{$webpath}css/allvideo.css'>
+<link rel='stylesheet' type='text/css' href='{$webpath}css/header.css'>
+<include file="system" />
+</head>
+<body>
+<include file="header_detail" />
+<div class="wrapper">
+<div class="navigation">
+  <span>您现在所在的位置：</span>{$navtitle}
+</div>
+<div class="main">
+<div class="box box_tag hot">
+<div class="box_tt"><h2>最近更新100部影片</h2></div>
+<div class="box_con">
+<ul>
+<gxcms name="video" limit="100" order="addtime desc">
+<li class="new_li"><span class="date">[{$video.addtime|date='m-d',###}]</span><span class="name">[{$video.showname}]</span><span class="title"><a href="{$video.readurl}" title="{$video.title}">{$video.title}&nbsp;<if condition="$video.serial neq 0 || ''">更新至{$video.serial}集<else />全集</if></a></span><span>主演：{$video.actor|get_replace_html=0,40}</span><span>上映：{$video.year}</span></li>
+</gxcms>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<include file="footer" />
+</body>
+</html>
+<script type="text/javascript" src="{$webpath}js/common.min.js"></script>
+<script src="{$webpath}js/tips_history_lazy.min.js" charset="utf-8" ></script>
+<script language="JavaScript" type="text/javascript" src="{$webpath}views/js/history.js"></script>

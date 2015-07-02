@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<link rel='stylesheet' type='text/css' href='{$webpath}css/allvideo.css'>
+<link rel='stylesheet' type='text/css' href='{$webpath}css/header.css'>
+<include file="system" />
+</head>
+<body>
+<include file="header_detail" />
+<div class="wrapper">
+<div class="navigation">
+  <span>您现在所在的位置：</span>{$navtitle}
+</div>
+<div class="main">
+<gxcms name="menu" ids="22,8,9,10,11,12,13,14,15,16,17,18,19,20,21,3,4">
+<div class="box box_tag hot">
+<div class="box_tt"><h2><a href="{$menu.showurl}" title="{$menu.cname}">{$menu.cname}</a></h2><span class="count">[共{$menu.id|get_channel_count}部]</span><span class="more"><a href="{$menu.showurl}" title="更多{$menu.cname}">更多>></a></span></div>
+<div class="box_con">
+<ul>
+<gxcms name="video" cid="'.$menu['id'].'" limit="49" order="addtime desc">
+<li><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,9}</a></li>
+</gxcms>
+</ul>
+</div>
+</div>
+</gxcms>
+</div>
+</div>
+<include file="footer" />
+</body>
+</html>
+<script type="text/javascript" src="{$webpath}js/common.min.js"></script>
+<script src="{$webpath}js/tips_history_lazy.min.js" charset="utf-8" ></script>
+<script language="JavaScript" type="text/javascript" src="{$webpath}views/js/history.js"></script>

@@ -1,0 +1,88 @@
+<div class="header">
+	<h1 class="header_logo"><a href="{$webpath}" title="{$webname}" target="_self">{$webname}</a></h1>
+	<script type="text/javascript" src="{$webpath}js/search_content_utf8.js"></script>
+	<div class="searchbox">
+	<form method="post" action="{$webpath}index.php?s=video/search" onsubmit="return check();" style="z-index: -1;" name="search" id="search" target="_blank">
+		<fieldset class="searchbox_search">
+			<input id="wd" name="wd" onfocus="serchClick('wd')" autocomplete="off" value="{$keyword|default='Please type video name,director'}" maxlength="26" type="text" class="input"/>
+			<button type="submit" id="btnSearch" onclick="stopSearchTextTimer();">Search</button>
+		</fieldset>
+	</form>
+	<script>
+	var CachePic=[];
+	function serchClick(name)
+	{
+		var box=document.getElementById(name);
+		if(searchTextTimer!=null||box.value=='Please type video name,director')
+		{box.value=''};
+		stopSearchTextTimer();
+		box.style.color='#000';
+	}
+	setSearchInputContent(document.getElementById("wd"));
+	</script>
+	<!--
+	{$topurl}
+
+	END-->
+		<div class="searchbox_hottag">
+			<a href="{$webpath}index.php">Hot play</a>{$hotkey}
+		</div>
+	</div><!--searchbox  END-->
+	<!--header 头部结束 
+	<div class="userpanel_box">
+		<div class="dy_top_box" style="display:none" id="dy_box">
+			
+		</div>
+		<div class="userpanel" id="user_status"><a href="{$newvideo}" title="{:date(\'Y-m-d\')}最近100部更新">Update today：[{:get_channel_count(0)}]</a>|<a href="{$allvideo}" title="全部影片">Total：[{:get_channel_count(-1)}]</a>|<a href="{$releasevideo}" title="新片上映">New </a></div>
+	</div>
+	<div class="quickpanel" id="quickpanel">
+	</div>
+	END-->
+</div><!--header 头部结束 END-->
+<div class="mainnav">
+	<div class="mainnav_list">
+
+    <a href="{$webpath}" <if condition="$model eq 'index'">class="on"</if>>Home</a>
+	<!--
+    <gxcms name="menu">
+    <a onfocus="this.blur();" href="{$menu.showurl}" <if condition="($menu['id'] eq $cid) or ($menu['id'] eq $pid)">class="on"</if>>{$menu.cname}</a> </gxcms>
+    <a href="{$topurl}" <if condition="$model eq 'top10'">class="on"</if>>Range</a>
+    <a href="{$specialurl}" <if condition="$model eq 'special'">class="on"</if>>Special</a>
+	END-->
+	</div>
+	<!--histroydrop
+	<div class="dropbox dropbox_1">
+	<script>
+	var topShow=false;
+	function showTop(n){
+		if(topShow==true){
+			switchTab('top',n,2,"dropbox_tigger dropbox_tigger_on","dropbox_tigger");
+		}else{
+			document.getElementById("Tab_top_"+n).className="dropbox_tigger dropbox_tigger_on";
+			document.getElementById("List_top_"+n).style.display="";
+			topShow=true;
+		}
+	}
+	function hideTop(){
+		for(i=0;i<2;i++) {
+			var CurTabObj = document.getElementById("Tab_top_"+i) ;
+			var CurListObj = document.getElementById("List_top_"+i) ;
+			CurTabObj.className="dropbox_tigger" ;
+			CurListObj.style.display="none";
+		}
+	}
+	</script>
+		  
+		<a href="javascript://" title="" class="dropbox_tigger" id="Tab_top_0" onmouseover="showTop(0);" onmouseout="hideTop();" target="_self" ><b></b></a>
+		
+		<div class="histroydrop" style="display:none;" id="List_top_0" onmouseover="showTop(0);" onmouseout="hideTop();">
+		</div>  
+		
+	</div>END-->
+	<!--histroydrop  
+	<div class="dropbox dropbox_2">
+		<a href="javascript://" title="" class="dropbox_tigger" id="Tab_top_1" onmouseover="showTop(1);" onmouseout="hideTop();" target="_self">History<b></b></a>
+		<div class="histroydrop" style="display:none;" id="List_top_1" onmouseover="showTop(1);" onmouseout="hideTop();">
+		</div>
+	</div>END-->
+</div><!--mainnav 导航结束 END-->

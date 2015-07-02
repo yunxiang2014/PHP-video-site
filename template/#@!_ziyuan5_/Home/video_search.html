@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<link rel='stylesheet' type='text/css' href='{$webpath}css/search.css'>
+<link rel='stylesheet' type='text/css' href='{$webpath}css/header.css'>
+<script>
+function search_tab(type){
+	var types = ['movie','teleplay','tv','anime'];
+	for(var i=0; i<types.length; i++){
+		var _obj = _$('sort-list-' + types[i]);
+		try{
+			_obj.style.display = 'none';
+		}catch(e){}
+		var _obj = _$('tab-' + types[i]);
+		try{
+			_obj.className = '';
+		}catch(e){}
+	}
+	
+	var _obj = _$('sort-list-' + type);
+	try{
+		_obj.style.display = 'block';
+	}catch(e){}
+	var _obj = _$('tab-' + type);
+	try{
+		_obj.className = 'on';
+	}catch(e){}
+	
+	function _$(id){
+		return document.getElementById(id);
+	}
+}
+function show_tab(open, close){
+	if(close != ''){
+		var close_tab = close.split(',');
+		for(var i=0; i<close_tab.length; i++){
+			try{
+				document.getElementById('tab_content_' + close_tab[i]).style.display = 'none';
+			}catch(e){}
+			try{
+				document.getElementById('tab_' + close_tab[i]).className = '';
+			}catch(e){}
+		}
+		try{
+			document.getElementById('tab_content_' + open).style.display = 'block';
+		}catch(e){}
+		try{
+			document.getElementById('tab_' + open).className = 'on';
+		}catch(e){}
+	}
+}
+</script>
+</head>
+<body class="topic_body">
+<include file="header_detail" />
+<div class="wrapper">
+	<div class="main">
+		<div class="search_key">Search<span class="HL">“{$keyword}”</span>，Found<span class="HL">{$count}</span>s</div><!--search_key  END-->
+		<div class="tabbox" onclick="" style="display:''">
+			<ul>
+				<li><a href="{$webpath}index.php?s=video/search/wd/{$keyword}" title="全部" <if condition="intval($_REQUEST['id']) eq 0">class="on"<else/></if>>Total({$count_a})</a></li>
+				<if condition="$count_m gt 0"><li><a href="{$webpath}index.php?s=video/search/id/1/wd/{$keyword}" title="电影" <if condition="intval($_REQUEST['id']) eq 1">class="on"<else/></if>>Movies({$count_m})</a></li><else/></if>
+				<if condition="$count_t gt 0"><li><a href="{$webpath}index.php?s=video/search/id/2/wd/{$keyword}" title="电视剧" <if condition="intval($_REQUEST['id']) eq 2">class="on"<else/></if>>电视剧({$count_t})</a></li><else/></if>
+				<if condition="$count_c gt 0"><li><a href="{$webpath}index.php?s=video/search/id/3/wd/{$keyword}" title="动漫" <if condition="intval($_REQUEST['id']) eq 3">class="on"<else/></if>>动漫({$count_c})</a></li><else/></if>
+				<if condition="$count_v gt 0"><li><a href="{$webpath}index.php?s=video/search/id/4/wd/{$keyword}" title="综艺" <if condition="intval($_REQUEST['id']) eq 4">class="on"<else/></if>>综艺({$count_v})</a></li><else/></if>
+			</ul>
+		</div><!--tabbox 搜索结果切换 END-->
+		<div class="orderbox"></div>
+		<ol class="reusltbox"><gxsearch name="video" limit="10" order="'.$order.'">
+			<li class="reusltbox_list">
+				<a target="_blank" href="{$video.readurl}" title="{$video.title}" class="pic"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" title="{$video.title}"><span class="bg"></span><span class="txt"><span><if condition="$video.serial gt 0">更新至{$video.serial}集<else/><notempty name='video.intro'>{$video.intro|get_replace_html=0,8}<else />完结</notempty></if></span></span></a>
+				<h2><a target="_blank" title="{$video.title}" href="{$video.readurl}">{$video['title']|get_hilight=$keyword}</a><span>{$video.cid|get_pid|get_channel_name}</span></h2>
+				<div class="reusltbox_score">
+					<span><strong>{$video.score}</strong>S</span>({$video.scoreer}views)
+				</div>
+				<ul class="reusltbox_list_detail">
+					<li>Type：{$video.showname}</li>
+					<li>Language：<span>{$video.language}</span></li>
+					<li>Director：{$video['director']|default='未知'|get_hilight=$keyword}</li>
+					<li>Area：{$video.area}</li>
+					<li class="Hauto">Actor：{$video.actor|get_actor_url}</li>
+					<li>Year：<span>{$video.year|default='Unknown'}</span></li>
+				</ul>
+				<p class="reusltbox_info">{$video.content|get_replace_html=0,70,'utf-8',true|get_hilight=$keyword}</p>
+					<div class="reusltbox_links">
+						<div class="reusltbox_links_playlink">
+								<a href="{$video.playerurl}" title="立即观看" class="play" target="_blank" blockid="2264">立即观看<b></b></a>
+						</div>
+							|<a href="{$video.readurl}" title="影片详情" target="_blank"><strong>More Detail</strong></a>
+			</li></gxsearch>
+			
+		</ol><if condition="$count gt 10"><p class="ggPager">{$pages}</p></if><!--main  END-->
+	</div>
+	
+	<div class="side">
+		<div class="box">
+			<h2>Recent Watch</h2>
+			<div class="box_con">
+				<ul class="movielist" id="recommend-list-movie"><gxcms name="video" limit="4" order="weekhits desc">
+				<li><a target="_blank" title="点击播放&#10;{$video.title}" href="{$video.playerurl}" class="pic"><img src="{$video.picurl}" /></a>
+				<p class="title"><a target="_blank" title="点击播放&#10;{$video.title}" href="{$video.playerurl}">{$video.title}</a></p>
+				<span class="bg"></span><span class="txt"><if condition="$video.serial gt 0">更新至{$video.serial}集<else/><notempty name='video.intro'>{$video.intro|get_replace_html=0,8}<else />Done</notempty></if></span>
+				<p>{$video.actor|get_replace_html=0,10}</p>
+				</li></gxcms>
+				</ul>
+			</div>
+		</div>	
+				
+		<div class="box">
+			<h2>Hot Watch<span>TOP10</span></h2>
+			<div class="box_con">
+				<div class="tabbox">
+					<ul>
+						<li><a href="javascript:;" onclick="this.blur()" onmouseover="search_tab('movie')" id="tab-movie" title="电影" class="on">Movies</a></li>
+						<li><a href="javascript:;" onclick="this.blur()" onmouseover="search_tab('teleplay')" id="tab-teleplay" title="电视剧">Channel</a></li>
+						<li><a href="javascript:;" onclick="this.blur()" onmouseover="search_tab('tv')" id="tab-tv" title="综艺">Funny</a></li>
+						<li><a href="javascript:;" onclick="this.blur()" onmouseover="search_tab('anime')" id="tab-anime" title="动漫">Cartoon</a></li>
+					</ul>
+				</div>
+				<ol class='sort-list' id='sort-list-movie' style='display:'><gxcms name="video" cid="1" limit="10" order="dayhits desc">
+				<lt name="i" value="4"><li class="top"><else /><li></eq></lt><em><eq name="i" value="10">{$i}<else/>0{$i}</eq></em>
+				<a target="_blank" title="点击播放&#10;{$video.title}" href="{$video.playerurl}">{$video.title}</a>
+				<a target="_blank" class="playMov" title="点击查看影片信息" href="{$video.readurl}"></a>
+				<span>{$video.intro}</span><span class="score"><strong>{$video.score}</strong></span></li></gxcms>
+				</ol>
+				<ol class='sort-list' id='sort-list-teleplay' style='display:none'><gxcms name="video" cid="2" limit="10" order="dayhits desc">
+				<lt name="i" value="4"><li class="top"><else /><li></eq></lt><em><eq name="i" value="10">{$i}<else/>0{$i}</eq></em>
+				<a target="_blank" title="点击播放&#10;{$video.title}" href="{$video.playerurl}">{$video.title}</a>
+				<a target="_blank" class="playMov" title="点击查看影片信息" href="{$video.readurl}"></a>
+				<span><if condition="$video.serial gt 0">更新至{$video.serial}集<else/>Done</if></span><span class="score"><strong>{$video.score}</strong></span></li></gxcms>
+				</ol>
+				<ol class='sort-list' id='sort-list-tv' style='display:none'><gxcms name="video" cid="4" limit="10" order="dayhits desc">
+				<lt name="i" value="4"><li class="top"><else /><li></eq></lt><em><eq name="i" value="10">{$i}<else/>0{$i}</eq></em>
+				<a target="_blank" title="点击播放&#10;{$video.title}" href="{$video.playerurl}">{$video.title}</a>
+				<a target="_blank" class="playMov" title="点击查看影片信息" href="{$video.readurl}"></a>
+				<span><if condition="$video.serial gt 0">{$video.serial}期<else/>Done</if></span><span class="score"><strong>{$video.score}</strong></span></li></gxcms>
+				</ol>
+				<ol class='sort-list' id='sort-list-anime' style='display:none'><gxcms name="video" cid="3" limit="10" order="dayhits desc">
+				<lt name="i" value="4"><li class="top"><else /><li></eq></lt><em><eq name="i" value="10">{$i}<else/>0{$i}</eq></em>
+				<a target="_blank" title="点击播放&#10;{$video.title}" href="{$video.playerurl}">{$video.title}</a>
+				<a target="_blank" class="playMov" title="点击查看影片信息" href="{$video.readurl}"></a>
+				<span><if condition="$video.serial gt 0">更新至{$video.serial}集<else/>完结</if></span><span class="score"><strong>{$video.score}</strong></span></li></gxcms>
+				</ol>
+				</div>
+		</div><!--box 明星最新动态 END-->
+	</div><!--side  END-->
+</div><!--wrap  END-->
+<include file="footer" />
+</body>
+</html>.
+<include file="system" />
+<script type="text/javascript" src="{$webpath}js/common.min.js"></script>
+<script src="{$webpath}js/tips_history_lazy.min.js" charset="utf-8" ></script>
+<script type="text/javascript">LAZY.init();LAZY.run();</script>

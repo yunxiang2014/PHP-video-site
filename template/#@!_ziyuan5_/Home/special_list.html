@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<link rel='stylesheet' type='text/css' href='{$webpath}css/topic.css'>
+<link rel='stylesheet' type='text/css' href='{$webpath}css/header.css'>
+</head>
+<body>
+<div class="top_con">
+<include file="header_detail" />
+</div>
+<div class="wrap">
+<div class="focus" style="min-height:200px;height:auto;"></div>
+	<div class="areabox topTab side">
+		<div class="area_head"><h2>热门专题排行</h2></div>
+		<div class="area_cont">
+			<ol><gxcms name="special" limit="10" order="hits desc">
+				<li><a href="{$special.readurl}">{$special.title|get_replace_html=0,12}</a></li></gxcms>
+			</ol>
+		</div> <!--人气榜 -->
+	</div>
+	<div class="primary">
+		<div class="areabox">
+			<div class="area_head tab_head">	
+				<ul>	
+					<li><a name="anchor_page_3698" id="Tab_rank_0" class="on" onclick="switchTab_special('rank',0,3,'on','',3698)">最新专题</a></li>
+					<li><a name="anchor_page_3732" id="Tab_rank_1" onclick="switchTab_special('rank',1,3,'on','',3732)">电影专题</a></li>
+					<li><a name="anchor_page_3733" id="Tab_rank_2" onclick="switchTab_special('rank',2,3,'on','',3733)">电视专题</a></li>
+				</ul>
+			</div>
+			<div class="area_cont" id="List_rank_0">
+<div id="page_3698_0">
+<gxlist name="special" limit="10" order="addtime">
+<div class="item_previ">
+					<h3><a title="{$special.title}" href="{$special.readurl}">{$special.title|get_replace_html=0,20}</a></h3>
+					<p class="time">{$special.addtime|date='Y-m-d',###}</p>
+					<div class="previ_show">
+						<a title="{$special.title}" href="{$special.readurl}" class="pic"><img src="{$special.logo}" width="208" height="96" title="{$special.title}" alt="{$special.title}" /></a>
+					<p class="previ_op">包括 {$special.count} 部视频</p>
+					</div>
+					<p class="previ_intro">{$special.content|get_replace_html=0,150}<a href="{$special.readurl}">[查看]</a></p>
+</div>
+</gxlist>
+</div>
+<if condition="$count gt 10">
+<div class="pages">{$pages}</div>
+</if>
+			</div>
+			<div class="area_cont" id="List_rank_1" style="display:none">
+<div id="page_3732_0">
+<gxlist name="special" class="1" limit="10" order="addtime">
+<div class="item_previ">
+					<h3><a title="{$special.title}" href="{$special.readurl}">{$special.title|get_replace_html=0,20}</a></h3>
+					<p class="time">{$special.addtime|date='Y-m-d',###}</p>
+					<div class="previ_show">
+						<a title="{$special.title}" href="{$special.readurl}" class="pic"><img src="{$special.logo}" width="208" height="96" title="{$special.title}" alt="{$special.title}" /></a>
+					<p class="previ_op">包括 {$special.count} 部视频</p>
+					</div>
+					<p class="previ_intro">{$special.content|get_replace_html=0,150}<a href="{$special.readurl}">[查看]</a></p>
+</div>
+</gxlist>
+</div>
+<if condition="$count gt 10">
+<div class="pages">{$pages}</div>
+</if>
+			</div>
+			<div class="area_cont" id="List_rank_2" style="display:none">
+<div id="page_3733_0">
+<gxlist name="special" class="2" limit="10" order="addtime">
+<div class="item_previ">
+					<h3><a title="{$special.title}" href="{$special.readurl}">{$special.title|get_replace_html=0,20}</a></h3>
+					<p class="time">{$special.addtime|date='Y-m-d',###}</p>
+					<div class="previ_show">
+						<a title="{$special.title}" href="{$special.readurl}" class="pic"><img src="{$special.logo}" width="208" height="96" title="{$special.title}" alt="{$special.title}" /></a>
+					<p class="previ_op">包括 {$special.count} 部视频</p>
+					</div>
+					<p class="previ_intro">{$special.content|get_replace_html=0,150}<a href="{$special.readurl}">[查看]</a></p>
+</div>
+</gxlist>
+</div>
+<if condition="$count gt 10">
+<div class="pages">{$pages}</div>
+</if>
+			</div>
+</div></div>
+	<div class="side">
+		<div class="areabox">
+			<div class="area_head"><h2>专题评论区</h2></div>
+			<div class="area_cont discuss_con">
+				<ul class="discuss_list">
+					<li>您最喜欢看哪一类专题？</li>
+				</ul>				
+				<div class="discuss_previ" id="scroll_comment">					
+					<ul><gxcms name="comment" mid="3" limit="10">
+					<li>{$comment.ip|GetIpAddress='shi'}网友:{$comment.content|get_replace_html=0,50}</li>
+					</gxcms>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<include file="footer" />
+</div>
+</body>
+</html>
+<include file="system" />
+<script type="text/javascript" src="{$webpath}js/special.js"></script>
+<script type="text/javascript" src="{$webpath}js/common.min.js"></script>
+<script src="{$webpath}js/tips_history_lazy.min.js" charset="utf-8" ></script>
+<script language="JavaScript" type="text/javascript" src="{$webpath}views/js/history.js"></script>

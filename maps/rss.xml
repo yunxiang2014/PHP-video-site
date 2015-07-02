@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+<title>Monster</title> 
+<description>Monster</description> 
+<link>http://localhost/</link> 
+<language>zh-cn</language> 
+<docs>Monster</docs> 
+<generator>Rss Powered By http://localhost/</generator> 
+<image>
+<url>http://localhost/public/images/logo.gif</url> 
+</image>
+<item>
+<title>Top 100 DJs 2014 Results - + Live sets from Hardwell &amp; Deorro</title> 
+<link>http://localhost/?s=video/detail/id/4.html</link>
+<author></author>
+<pubDate>2015-04-20 07:24:22</pubDate>
+<description><![CDATA["Subcribe for video interviews with the Top 100 "]]></description> 
+</item><item>
+<title>youtube_testww</title> 
+<link>http://localhost/?s=video/detail/id/2.html</link>
+<author>ww</author>
+<pubDate>2015-04-16 13:01:08</pubDate>
+<description><![CDATA["ww"]]></description> 
+</item><item>
+<title>test2e</title> 
+<link>http://localhost/?s=video/detail/id/3.html</link>
+<author>e</author>
+<pubDate>2015-04-16 11:47:14</pubDate>
+<description><![CDATA["e"]]></description> 
+</item></channel>
+</rss>
